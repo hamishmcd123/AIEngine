@@ -2,7 +2,6 @@
 #include "Renderer/RenderCommand.hpp"
 #include "glad/gl.h"
 #include "imgui.h"
-#include <iostream>
 #include <queue>
 
 namespace Renderer {
@@ -41,5 +40,5 @@ void Renderer::EndScene() {
     m_CommandQueue.pop();
   }
 }
+}
 
-} // namespace Renderer

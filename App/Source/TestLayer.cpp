@@ -1,11 +1,9 @@
 #include "TestLayer.hpp"
 #include "Renderer/BufferElement.hpp"
 #include "Renderer/RenderCommand.hpp"
-#include "Renderer/Renderer.hpp"
 #include "Renderer/Shader.hpp"
 #include "Renderer/VertexArray.hpp"
 #include "Renderer/VertexBuffer.hpp"
-#include "imgui.h"
 #include <memory>
 
 namespace App {
@@ -25,7 +23,7 @@ TestLayer::TestLayer() {
   float vertices[] = {-0.5f, -0.5f, 0.0f, 0.5f, -0.5f, 0.0f, 0.0f, 0.5f, 0.0f};
 
   m_Shader = std::make_shared<Renderer::Shader>("Resources/vert.glsl",
-                                              "Resources/frag.glsl");
+                                                "Resources/frag.glsl");
   m_VBO = std::make_shared<Renderer::VertexBuffer>(vertices, sizeof(vertices));
   m_VAO = std::make_shared<Renderer::VertexArray>();
 

@@ -3,7 +3,6 @@
 #include <memory>
 #include <type_traits>
 #include <vector>
-#include <cassert>
 #include "Layer.hpp"
 
 namespace App {
