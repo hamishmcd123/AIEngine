@@ -2,6 +2,7 @@
 #include "EditorLayer.hpp"
 #include "Panels/MenuBar.hpp"
 #include "Panels/TestWindow.hpp"
+#include "TestLayer.hpp"
 int main() {
 
     Core::ApplicationSpec AppSpec;
@@ -14,6 +15,7 @@ int main() {
 
     Core::Application App(AppSpec);
     App.PushNewLayer<App::EditorLayer>(App::MenuBar(), App::TestWindow());
+    App.PushNewLayer<App::TestLayer>();
     App.Run();
     return 0;
 }

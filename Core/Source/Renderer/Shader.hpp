@@ -7,6 +7,7 @@
 namespace Renderer {
     class Shader {
     public:
+        Shader();
         Shader(const std::string& VertexPath, const std::string& FragPath);
         void DeleteShader();
         void Bind() const;

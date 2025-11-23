@@ -2,6 +2,8 @@ set(SOURCES
     Source/main.cpp
     Source/EditorLayer.cpp
     Source/EditorLayer.hpp
+    Source/TestLayer.cpp
+    Source/TestLayer.hpp
     Source/Panels/MenuBar.cpp
     Source/Panels/MenuBar.hpp
     Source/Panels/TestWindow.cpp
@@ -18,6 +20,13 @@ source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES "${SOURCES}")
 target_link_libraries(App PUBLIC Core)
 
 target_include_directories(App PRIVATE Source)
+
+add_custom_command(TARGET App POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/Resources $<TARGET_FILE_DIR:App>/Resources
+    COMMENT "Copying Resources folder..."
+)
+
 
 # Set working directory for VS debugger
 #set_target_properties(App PROPERTIES

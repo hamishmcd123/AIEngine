@@ -14,9 +14,15 @@ set (SOURCES
     Source/Logger.hpp
     Source/Renderer/Camera.hpp
     Source/Renderer/Renderer.hpp
+    Source/Renderer/Renderer.cpp
     Source/Renderer/RenderCommand.hpp
     Source/Renderer/Shader.hpp
     Source/Renderer/Shader.cpp
+    Source/Renderer/VertexBuffer.cpp
+    Source/Renderer/VertexBuffer.hpp
+    Source/Renderer/VertexArray.hpp
+    Source/Renderer/VertexArray.cpp
+    Source/Renderer/BufferElement.hpp
 )
 
 add_library(Core STATIC)
@@ -41,7 +47,7 @@ else()
     target_link_libraries(Core PUBLIC glm)
 endif()
 
-target_link_libraries(Core PRIVATE glad_gl_core_33)
+target_link_libraries(Core PUBLIC glad_gl_core_33)
 
 target_link_libraries(Core PUBLIC imgui)
 # For working in VS

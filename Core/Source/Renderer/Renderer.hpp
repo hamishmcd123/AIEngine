@@ -7,11 +7,13 @@ namespace Renderer{
 
     public:
     static void Init();
-    static void BeginScene(Camera& Camera);
+    // Remember to put camera back in BeginScene()
+    static void BeginScene();
+    static void Submit(const RenderCommand& command);
     static void EndScene();
 
     private:
-    std::queue<RenderCommand> m_CommandQueue;
-
+    static std::queue<RenderCommand> m_CommandQueue;
+ //   static Camera& m_CurrentCamera;
     };
 }

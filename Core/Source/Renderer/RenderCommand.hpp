@@ -1,10 +1,15 @@
-#pragma once 
+#pragma once
+#include "Shader.hpp"
+#include "VertexArray.hpp"
+#include "glad/gl.h"
 
-namespace Renderer{
+#include <memory>
 
-    struct RenderCommand {
+namespace Renderer {
 
-
-
-    };
+struct RenderCommand {
+  std::shared_ptr<Shader> CommandShader;
+  std::shared_ptr<VertexArray> VAO;
+  int VertexCount; // TODO - Replace this with mesh
+};
 }

@@ -3,6 +3,9 @@
 
 namespace Renderer {
 
+    VertexBuffer::VertexBuffer() {
+
+    }
     VertexBuffer::VertexBuffer(const void* data, const size_t size) {
         glGenBuffers(1, &m_BufferID);
         glBindBuffer(GL_ARRAY_BUFFER, m_BufferID);

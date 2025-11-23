@@ -4,7 +4,8 @@
 namespace Renderer {
 
     class VertexBuffer {
-
+    public:
+    VertexBuffer();
     VertexBuffer(const void* data, const size_t size);
     ~VertexBuffer();
 

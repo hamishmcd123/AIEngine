@@ -44,7 +44,7 @@ namespace Renderer {
 		char* buffer = new char[length + 1];
 		fstream.read(buffer, length);
 		buffer[length] = '\0';
-        VertexSource = std::string(buffer);
+        FragmentSource = std::string(buffer);
 		delete[] buffer;
 	}
     else {
@@ -53,8 +53,17 @@ namespace Renderer {
 	}
 
     GLuint FragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+    
 
+    //Convert the std::strings to const char*
+    
+    const char* VertexSourceCStr = VertexSource.c_str();
+    const char* FragmentSourceCStr = FragmentSource.c_str();
+
+    glShaderSource(VertexShader, 1, &VertexSourceCStr, NULL);
+    glShaderSource(FragmentShader, 1, &FragmentSourceCStr, NULL);
     m_ShaderID = glCreateProgram();
+
     
     glAttachShader(m_ShaderID, VertexShader);
     glAttachShader(m_ShaderID, FragmentShader);
@@ -73,12 +82,15 @@ namespace Renderer {
         if (logLength > 0) {
         glGetProgramInfoLog(m_ShaderID, 512, nullptr, infoLog);
         LOG(LogLevel::FATAL, "Failed to link shader program!");
-
         assert(false);
         }
     }
 }
 
+Shader::Shader() {
+
+
+}
 void Shader::DeleteShader()
 {
 	glDeleteProgram(m_ShaderID);

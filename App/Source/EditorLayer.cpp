@@ -17,11 +17,9 @@ namespace App {
     }
 
     void EditorLayer::OnUpdate(float ts) {
-
     }
 
     void EditorLayer::OnRender() {
-
     }
     
     void EditorLayer::OnEvent(Core::Event& event) {
