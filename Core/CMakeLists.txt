@@ -13,6 +13,7 @@ set (SOURCES
     Source/Logger.cpp
     Source/Logger.hpp
     Source/Renderer/Camera.hpp
+    Source/Renderer/Camera.cpp
     Source/Renderer/Renderer.hpp
     Source/Renderer/Renderer.cpp
     Source/Renderer/RenderCommand.hpp

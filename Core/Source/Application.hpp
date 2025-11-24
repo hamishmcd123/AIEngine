@@ -1,7 +1,7 @@
 #pragma once
 #include "Event.hpp"
 #include "Window.hpp"
-#include <iostream>
+#include "glm/glm.hpp"
 #include <string>
 #include <memory>
 #include <vector>
@@ -33,7 +33,9 @@ class Application{
 
     static Application* Get();
 
-    Window* GetWindow();
+    Window* GetWindow() const;
+
+    glm::ivec2 GetWindowSize() const;
 
     private:
     std::shared_ptr<Window> m_Window = nullptr;

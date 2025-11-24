@@ -17,9 +17,9 @@ class VertexArray{
 
     size_t GetVertexCount() const {return m_VertexCount;}
 
-    GLuint m_ArrayID;
 
     private:
+    GLuint m_ArrayID;
     size_t m_VertexCount;
     GLuint m_Index = 0;
 };

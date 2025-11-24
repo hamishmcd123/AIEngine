@@ -30,7 +30,7 @@ class Window{
     void SetEventCallback(std::function<void(Event&)> func);
 
     GLFWwindow* GetHandle() const {return m_WindowHandle;}
-
+    
     private:
     GLFWwindow* m_WindowHandle = nullptr;
     WindowSpec m_WindowSpec;

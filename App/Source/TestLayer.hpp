@@ -1,6 +1,6 @@
 #pragma once
 #include "Layer.hpp"
-#include "Renderer/Renderer.hpp"
+#include "Renderer/Camera.hpp"
 #include "Renderer/Shader.hpp"
 #include "Renderer/VertexArray.hpp"
 #include "Renderer/VertexBuffer.hpp"
@@ -21,6 +21,7 @@ private:
   std::shared_ptr<Renderer::VertexBuffer> m_VBO;
   std::shared_ptr<Renderer::VertexArray> m_VAO;
   std::shared_ptr<Renderer::Shader> m_Shader;
+  Renderer::Camera m_Camera;
 };
 
 } // namespace App

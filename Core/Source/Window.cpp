@@ -4,7 +4,6 @@
 #include "GLFW/glfw3.h"
 #include <cassert>
 #include <iostream>
-
 #include "Events/MouseEvents.hpp"
 #include "Events/WindowEvents.hpp"
 #include "Events/KeyEvents.hpp"
@@ -46,7 +45,7 @@ namespace Core{
             win->ApplicationCallback(e);
     });
 
-    glfwSetWindowSizeCallback(m_WindowHandle, [](GLFWwindow* window, int width, int height){
+    glfwSetFramebufferSizeCallback(m_WindowHandle, [](GLFWwindow* window, int width, int height){
         WindowResizeEvent e(width, height);
         Window* win = static_cast<Window*>(glfwGetWindowUserPointer(window));
         win->ApplicationCallback(e);
@@ -71,4 +70,6 @@ namespace Core{
     void Window::SetEventCallback(std::function<void(Event&)> func) {
        ApplicationCallback = func; 
     }
+
+
 }

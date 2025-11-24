@@ -1,10 +1,9 @@
-#include "Renderer/Renderer.hpp"
 #include "Application.hpp"
 #include "Event.hpp"
 #include "Events/WindowEvents.hpp"
+#include "Renderer/Renderer.hpp"
 #include "GLFW/glfw3.h"
 #include "Logger.hpp"
-#include "Renderer/VertexBuffer.hpp"
 #include "Window.hpp"
 #include "imgui.h"
 #include <memory>
@@ -62,7 +61,7 @@ void Application::Run() {
   }
 }
 
-Window *Application::GetWindow() { return m_Window.get(); }
+Window *Application::GetWindow() const { return m_Window.get(); }
 
 Application *Application::Get() { return s_Instance; }
 
@@ -78,6 +77,7 @@ void Application::OnEvent(Event &e) {
 
   dispatcher.Dispatch<WindowResizeEvent>([](WindowResizeEvent &e) -> bool {
     glViewport(0, 0, e.GetWindowWidth(), e.GetWindowHeight());
+    Renderer::Renderer::UpdateCurrentCameraPerspectiveMatrix(e.GetWindowWidth(), e.GetWindowHeight());
     return true;
   });
 
@@ -87,4 +87,11 @@ void Application::OnEvent(Event &e) {
     it->get()->OnEvent(e);
   }
 }
-} 
+
+glm::ivec2 Application::GetWindowSize() const {
+  int Width;
+  int Height;
+  glfwGetFramebufferSize(GetWindow()->GetHandle(), &Width, &Height);
+  return glm::ivec2{Width, Height};
+}
+} // namespace Core
